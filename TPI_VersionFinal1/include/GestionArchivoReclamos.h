@@ -6,6 +6,7 @@ class GestionArchivoReclamos
 {
     public:
 
+        GestionArchivoReclamos();
         GestionArchivoReclamos(std::string nombreArchivo);
 
         bool guardarReclamo(Reclamo reclamo);

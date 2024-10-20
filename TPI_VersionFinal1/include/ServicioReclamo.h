@@ -14,6 +14,6 @@ class ServicioReclamo
 
     private:
 
-        GestionArchivoReclamos _archivoReclamos();
+        GestionArchivoReclamos _archivoReclamos;
 };
 

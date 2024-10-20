@@ -6,6 +6,7 @@
 class GestionArchivoAsistencias
 {
     public:
+        GestionArchivoAsistencias();
 
         GestionArchivoAsistencias(std::string nombreArchivo);
 

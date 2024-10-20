@@ -14,6 +14,6 @@ class ServicioPago
 
     private:
 
-        GestionArchivoPagos _archivoPago();
+        GestionArchivoPagos _archivoPago;
 };
 

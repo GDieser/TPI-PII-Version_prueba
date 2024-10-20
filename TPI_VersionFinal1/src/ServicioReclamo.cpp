@@ -7,7 +7,7 @@ using namespace std;
 
 ServicioReclamo::ServicioReclamo()
 {
-    //ctor
+    _archivoReclamos = GestionArchivoReclamos("archivoReclamos.dat");
 }
 
 void ServicioReclamo::verReclamo()

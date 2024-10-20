@@ -6,22 +6,22 @@ using namespace std;
 
 ServicioPago::ServicioPago()
 {
-    //ctor
+    _archivoPago = GestionArchivoPagos("archivoPagos.dat");
 }
 
 void ServicioPago::verRegistroPagos()
 {
 
 }
-        void ServicioPago::registrarPago()
-        {
+void ServicioPago::registrarPago()
+{
 
-        }
-        void ServicioPago::verIngresosAnuales()
-        {
+}
+void ServicioPago::verIngresosAnuales()
+{
 
-        }
-        void ServicioPago::verIngresosMensuales()
-        {
+}
+void ServicioPago::verIngresosMensuales()
+{
 
-        }
+}

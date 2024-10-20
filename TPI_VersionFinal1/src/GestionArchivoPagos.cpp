@@ -4,6 +4,10 @@
 
 using namespace std;
 
+GestionArchivoPagos::GestionArchivoPagos()
+{
+
+}
 
 GestionArchivoPagos::GestionArchivoPagos(string nombreArchivo)
 {

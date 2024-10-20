@@ -6,6 +6,7 @@ class GestionArchivoRutinas
 {
     public:
 
+        GestionArchivoRutinas();
         GestionArchivoRutinas(std::string nombreArchivo);
 
         bool guardarRutina(Rutina rutina);

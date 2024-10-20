@@ -4,6 +4,11 @@
 
 using namespace std;
 
+GestionArchivoEjercicios::GestionArchivoEjercicios()
+{
+
+}
+
 GestionArchivoEjercicios::GestionArchivoEjercicios(string nombreArchivo)
 {
     _nombreArchivo = nombreArchivo;

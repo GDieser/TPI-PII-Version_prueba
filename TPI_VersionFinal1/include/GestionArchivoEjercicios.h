@@ -5,6 +5,8 @@
 class GestionArchivoEjercicios
 {
 public:
+
+    GestionArchivoEjercicios();
     GestionArchivoEjercicios(std::string nombreArchivo);
 
     bool guardarEjercicio(Ejercicio ejercicio);

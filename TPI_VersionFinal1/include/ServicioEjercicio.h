@@ -13,6 +13,6 @@ class ServicioEjercicio
 
     private:
 
-        GestionArchivoEjercicios _archivoEjercicio();
+        GestionArchivoEjercicios _archivoEjercicio;
 };
 

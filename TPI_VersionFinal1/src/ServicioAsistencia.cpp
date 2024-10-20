@@ -7,7 +7,7 @@ using namespace std;
 
 ServicioAsistencia::ServicioAsistencia()
 {
-    //ctor
+    _archivoAsitencia = GestionArchivoAsistencias("archivoAsistencias.dat");
 }
 
 void registrarAsistencia()

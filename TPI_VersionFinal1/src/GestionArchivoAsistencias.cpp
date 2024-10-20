@@ -4,6 +4,10 @@
 
 using namespace std;
 
+GestionArchivoAsistencias::GestionArchivoAsistencias()
+{
+
+}
 
 GestionArchivoAsistencias::GestionArchivoAsistencias(string nombreArchivo)
 {

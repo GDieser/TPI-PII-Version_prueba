@@ -6,7 +6,7 @@ using namespace std;
 
 ServicioEjercicio::ServicioEjercicio()
 {
-    //ctor
+    _archivoEjercicio = GestionArchivoEjercicios("archivoEjercicios.dat");
 }
 
 void ServicioEjercicio::verEjercicio()

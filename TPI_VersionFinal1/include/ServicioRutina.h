@@ -16,6 +16,6 @@ class ServicioRutina
     private:
 
         GestionArchivoDetalleRutinas _archivoDetallesRutina();
-        GestionArchivoRutinas _archivoRutina();
+        GestionArchivoRutinas _archivoRutina;
 };
 

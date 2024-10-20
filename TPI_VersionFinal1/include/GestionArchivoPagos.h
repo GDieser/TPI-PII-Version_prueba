@@ -7,6 +7,7 @@ class GestionArchivoPagos
 {
 public:
 
+    GestionArchivoPagos();
     GestionArchivoPagos(std::string nombreArchivo);
 
     bool guardarPago(RegistroPago pago);

@@ -12,6 +12,6 @@ class ServicioAsistencia
 
     private:
 
-        GestionArchivoAsistencias _archivoAsitencia();
+        GestionArchivoAsistencias _archivoAsitencia;
 };
 

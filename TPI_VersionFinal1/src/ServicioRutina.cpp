@@ -7,7 +7,7 @@ using namespace std;
 
 ServicioRutina::ServicioRutina()
 {
-    //ctor
+    _archivoRutina = GestionArchivoRutinas("archivoRutinas.dat");
 }
 
 void ServicioRutina::verRutina()
