@@ -189,11 +189,12 @@
 1729277212 c:\users\utn\materias\segundo cuatrimestre\programacion ii\practicas\trabajo practico integrador\tpi version arpobada 1\tpi_versionfinal1\include\servicioejercicio.h
 	"GestionArchivoEjercicios.h"
 
-1729388609 source:c:\users\utn\materias\segundo cuatrimestre\programacion ii\practicas\trabajo practico integrador\tpi version arpobada 1\tpi_versionfinal1\src\servicioempleado.cpp
+1729432831 source:c:\users\utn\materias\segundo cuatrimestre\programacion ii\practicas\trabajo practico integrador\tpi version arpobada 1\tpi_versionfinal1\src\servicioempleado.cpp
 	<iostream>
 	<cstring>
 	"ServicioEmpleado.h"
 	"ServicioSocio.h"
+	"ServicioActividad.h"
 
 1729389094 c:\users\utn\materias\segundo cuatrimestre\programacion ii\practicas\trabajo practico integrador\tpi version arpobada 1\tpi_versionfinal1\include\servicioempleado.h
 	"GestionArchivoEmpleados.h"
@@ -230,4 +231,18 @@
 
 1729302284 c:\users\utn\materias\segundo cuatrimestre\programacion ii\practicas\trabajo practico integrador\tpi version arpobada 1\tpi_versionfinal1\include\serviciosocio.h
 	"GestionArchivoSocios.h"
+
+1729432544 source:c:\users\utn\materias\segundo cuatrimestre\programacion ii\practicas\trabajo practico integrador\tpi version arpobada 1\tpi_versionfinal1\src\gestionarchivoactividades.cpp
+	<iostream>
+	"GestionArchivoActividades.h"
+
+1729432164 c:\users\utn\materias\segundo cuatrimestre\programacion ii\practicas\trabajo practico integrador\tpi version arpobada 1\tpi_versionfinal1\include\gestionarchivoactividades.h
+	"Actividad.h"
+
+1729432467 source:c:\users\utn\materias\segundo cuatrimestre\programacion ii\practicas\trabajo practico integrador\tpi version arpobada 1\tpi_versionfinal1\src\servicioactividad.cpp
+	<iostream>
+	"ServicioActividad.h"
+
+1729432613 c:\users\utn\materias\segundo cuatrimestre\programacion ii\practicas\trabajo practico integrador\tpi version arpobada 1\tpi_versionfinal1\include\servicioactividad.h
+	"GestionArchivoActividades.h"
 

@@ -3,6 +3,7 @@
 
 #include "ServicioEmpleado.h"
 #include "ServicioSocio.h"
+#include "ServicioActividad.h"
 
 using namespace std;
 
@@ -77,13 +78,13 @@ void ServicioEmpleado::agregarGerenete()
 void ServicioEmpleado::agregarEntrenador()
 {
     string nombre, apellido, contrasenia;
-    int dni, idUsuario;
+    int dni, idUsuario, opcion;
     int dia, mes, anio;
     Fecha fechaIngreso;
     bool estado = true;
     int idRol = 1, legajo, idTurno, idActividadPrincipal;
 
-
+    ServicioActividad actividad;
 
     ServicioEmpleado servi;
 
@@ -108,6 +109,22 @@ void ServicioEmpleado::agregarEntrenador()
     ///Deberia quedar mas sofisticado el ingreso de la contraseña
     cout << " Ingrese contrasenia: ";
     cin >> contrasenia;
+
+    ///Nos falto agregar servicio para Actividad
+    cout << " 1- Ver Lista de Actividades | 2 - Agregar nueva Actividad " << endl;
+    cin >> opcion;
+
+    if(opcion == 1)
+    {
+        actividad.listarActividades();
+    }
+    else
+    {
+        actividad.agregarActividad();
+    }
+    cout << endl;
+    cout << " ID Actividad principal: ";
+    cin >> idActividadPrincipal;
 
 
     Fecha fechaNacimiento(dia, mes, anio);

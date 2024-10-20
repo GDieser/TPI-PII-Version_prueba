@@ -40,6 +40,9 @@
 		<Unit filename="include/Ejercicio.h" />
 		<Unit filename="include/Empleado.h" />
 		<Unit filename="include/Fecha.h" />
+		<Unit filename="include/GestionArchivoActividades.h">
+			<Option virtualFolder="Archivos/Archivos_h/" />
+		</Unit>
 		<Unit filename="include/GestionArchivoAsistencias.h">
 			<Option virtualFolder="Archivos/Archivos_h/" />
 		</Unit>
@@ -80,6 +83,9 @@
 		<Unit filename="include/RegistroAsistencia.h" />
 		<Unit filename="include/RegistroPago.h" />
 		<Unit filename="include/Rutina.h" />
+		<Unit filename="include/ServicioActividad.h">
+			<Option virtualFolder="Servicios/Servicios_h/" />
+		</Unit>
 		<Unit filename="include/ServicioAsistencia.h">
 			<Option virtualFolder="Servicios/Servicios_h/" />
 		</Unit>
@@ -109,6 +115,9 @@
 		<Unit filename="src/Ejercicio.cpp" />
 		<Unit filename="src/Empleado.cpp" />
 		<Unit filename="src/Fecha.cpp" />
+		<Unit filename="src/GestionArchivoActividades.cpp">
+			<Option virtualFolder="Archivos/Archivos_cpp/" />
+		</Unit>
 		<Unit filename="src/GestionArchivoAsistencias.cpp">
 			<Option virtualFolder="Archivos/Archivos_cpp/" />
 		</Unit>
@@ -149,6 +158,9 @@
 		<Unit filename="src/RegistroAsistencia.cpp" />
 		<Unit filename="src/RegistroPago.cpp" />
 		<Unit filename="src/Rutina.cpp" />
+		<Unit filename="src/ServicioActividad.cpp">
+			<Option virtualFolder="Servicios/Servicios_cpp/" />
+		</Unit>
 		<Unit filename="src/ServicioAsistencia.cpp">
 			<Option virtualFolder="Servicios/Servicios_cpp/" />
 		</Unit>
