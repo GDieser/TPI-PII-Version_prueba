@@ -11,10 +11,10 @@ public:
     void verSocios();
     void agregarSocio();
     void modificarSocio();
-    void verEntrenadorAsignado();
+    void verEntrenadorAsignado(int idSocio);
     void verHorarios();
     void verMembresia();
-    void modificarContrasenia();
+    void modificarContrasenia(int idSocio);
 
     bool buscarSocioLogin(int idSocio, std::string pass);
     int obternerUltimoIdSocio();

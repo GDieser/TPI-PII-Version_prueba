@@ -7,11 +7,12 @@ class ServicioEmpleado
     public:
         ServicioEmpleado();
 
-        void verEmpleado();
-
         ///Necesitamos ambos por que entrenador necesita consultar actividades (podria ser sobrecarga)
         void agregarGerenete();
         void agregarEntrenador();
+
+        void verEntrenadores();
+        void verGerentes();
 
         void modificarEmpleado();
         void verSociosAsignados();

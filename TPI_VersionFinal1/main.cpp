@@ -5,6 +5,7 @@
 #include "Fecha.h"
 #include "Empleado.h"
 #include "GestionArchivoEmpleados.h"
+#include "ServicioActividad.h"
 
 using namespace std;
 
@@ -19,6 +20,10 @@ int main()
     GestionArchivoEmpleados archi("archivoEmpleados.dat");
 
     archi.guardarEmpleado(empleado);*/
+
+    //ServicioActividad act;
+
+    //act.agregarActividad();
 
     MenuPrincipal menu;
 

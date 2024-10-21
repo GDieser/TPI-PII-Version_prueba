@@ -102,7 +102,7 @@ void MenuGerente::gestionarSocios()
         switch(opcion)
         {
         case 1:
-
+            socio.verSocios();
             break;
         case 2:
             socio.agregarSocio();
@@ -155,7 +155,7 @@ void MenuGerente::gestionarEntrenadores()
         switch(opcion)
         {
         case 1:
-
+            entrenador.verEntrenadores();
             break;
         case 2:
             entrenador.agregarEntrenador();
@@ -211,7 +211,7 @@ void MenuGerente::gestionarGerentes()
         switch(opcion)
         {
         case 1:
-
+            gerente.verGerentes();
             break;
         case 2:
             gerente.agregarGerenete();

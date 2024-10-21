@@ -25,6 +25,7 @@ public:
     bool validarAnio();
 
     int calcularFechaVencimiento();
+    std::string toString();
 
 private:
 

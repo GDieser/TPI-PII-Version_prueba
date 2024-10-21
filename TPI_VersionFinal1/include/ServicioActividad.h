@@ -8,7 +8,7 @@ public:
     ServicioActividad();
 
     void listarActividades();
-    void agregarActividad();
+    int agregarActividad();
     void modificarActividad();
 
 

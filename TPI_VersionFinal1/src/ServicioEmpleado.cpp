@@ -13,10 +13,56 @@ ServicioEmpleado::ServicioEmpleado()
     _archivoEmpleado = GestionArchivoEmpleados("archivoEmpleados.dat");
 }
 
-void ServicioEmpleado::verEmpleado()
+void ServicioEmpleado::verEntrenadores()
 {
+    system("cls");
+    Empleado entrenador;
 
+    int cantidad = _archivoEmpleado.cantidadRegistrosEmpleados();
+
+    for(int i=0; i<cantidad; i++)
+    {
+        entrenador = _archivoEmpleado.leerRegistroEmpleado(i);
+
+        if(entrenador.getIdRol() == 1 && entrenador.getEstado())
+        {
+            cout << "---------------------------" << endl;
+            cout << " Nombre: " << entrenador.getNombre() << endl;
+            cout << " Apellido: " << entrenador.getApellido() << endl;
+            cout << " Fecha de ingreso: " << entrenador.getFechaDeIngreso().toString() << endl;
+            cout << " Legajo: " << entrenador.getLegajo() << endl;
+            ///Agregar Actividad principal
+        }
+    }
+
+    system("pause");
 }
+
+void ServicioEmpleado::verGerentes()
+{
+    system("cls");
+
+    Empleado gerente;
+
+    int cantidad = _archivoEmpleado.cantidadRegistrosEmpleados();
+
+    for(int i=0; i<cantidad; i++)
+    {
+        gerente = _archivoEmpleado.leerRegistroEmpleado(i);
+
+        if(gerente.getIdRol() == 0 && gerente.getEstado())
+        {
+            cout << "---------------------------" << endl;
+            cout << " Nombre: " << gerente.getNombre() << endl;
+            cout << " Apellido: " << gerente.getApellido() << endl;
+            cout << " Fecha de ingreso: " << gerente.getFechaDeIngreso().toString() << endl;
+            cout << " Legajo: " << gerente.getLegajo() << endl;
+        }
+    }
+
+    system("pause");
+}
+
 void ServicioEmpleado::agregarGerenete()
 {
     string nombre, apellido, contrasenia;
@@ -117,14 +163,15 @@ void ServicioEmpleado::agregarEntrenador()
     if(opcion == 1)
     {
         actividad.listarActividades();
+        cout << endl;
+        cout << " ID Actividad principal: ";
+        cin >> idActividadPrincipal;
     }
     else
     {
-        actividad.agregarActividad();
+        idActividadPrincipal = actividad.agregarActividad();
     }
-    cout << endl;
-    cout << " ID Actividad principal: ";
-    cin >> idActividadPrincipal;
+
 
 
     Fecha fechaNacimiento(dia, mes, anio);
@@ -153,18 +200,22 @@ void ServicioEmpleado::modificarEmpleado()
 {
 
 }
+
 void ServicioEmpleado::verSociosAsignados()
 {
 
 }
+
 void ServicioEmpleado::asignarHorarios()
 {
 
 }
+
 void ServicioEmpleado::verHorariosAsignados()
 {
 
 }
+
 void ServicioEmpleado::modificarContrasenia()
 {
 

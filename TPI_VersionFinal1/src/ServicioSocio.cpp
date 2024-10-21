@@ -17,7 +17,49 @@ ServicioSocio::ServicioSocio()
 
 void ServicioSocio::verSocios()
 {
+    system("cls");
 
+    Socio socio;
+    int cantidad = _archivoSocio.cantidadRegistrosSocios();
+
+    for(int i=0; i<cantidad; i++)
+    {
+        socio = _archivoSocio.leerRegistroSocio(i);
+
+        if(socio.getEstado())
+        {
+            cout << "-------------------------" << endl;
+            cout << " Nombre: " << socio.getNombre() << endl;
+            cout << " Apellido: " << socio.getApellido() << endl;
+            cout << " ID: #" << socio.getIdUsuario() << endl;
+            cout << " Membresia: ";
+
+            switch(socio.getMembresia())
+            {
+            case 0:
+                cout << "FIT" << endl;
+                break;
+            case 1:
+                cout << "SMART" << endl;
+                break;
+            case 2:
+                cout << "FULL" << endl;
+                break;
+            }
+
+            if(socio.getIdEntrenadorAsignado() != 0)
+            {
+                cout << " Entrenador asignado ID: #" << socio.getIdEntrenadorAsignado() << endl;
+            }
+            else
+            {
+                cout << " Sin entrenador Asignado" << endl;
+            }
+            cout << " Fecha ingreso: " << socio.getFechaDeIngreso().toString() << endl;
+        }
+    }
+
+    system("pause");
 }
 void ServicioSocio::agregarSocio()
 {
@@ -80,20 +122,82 @@ void ServicioSocio::modificarSocio()
 {
 
 }
-void ServicioSocio::verEntrenadorAsignado()
+void ServicioSocio::verEntrenadorAsignado(int idSocio)
 {
+    system("cls");
+    Socio socio;
 
+    int posicion = _archivoSocio.buscarSocio(idSocio);
+
+    socio = _archivoSocio.leerRegistroSocio(posicion);
+
+    cout << "-------------------------" << endl;
+    cout << " Socio ID #" << idSocio << endl;
+    cout << " Nombre: " << socio.getNombre() << endl;
+    cout << " Apellido: " << socio.getApellido() << endl;
+
+    if(socio.getIdEntrenadorAsignado() != 0)
+    {
+        cout << " Entrenador asignado ID: #" << socio.getIdEntrenadorAsignado() << endl;
+    }
+    else
+    {
+        cout << " Sin entrenador Asignado" << endl;
+    }
+
+    system("pause");
 }
+
 void ServicioSocio::verHorarios()
 {
 
 }
+
 void ServicioSocio::verMembresia()
 {
 
 }
-void ServicioSocio::modificarContrasenia()
+
+void ServicioSocio::modificarContrasenia(int idSocio)
 {
+    system("cls");
+    string pass, pass2;
+    Socio socio;
+
+
+    int posicion = _archivoSocio.buscarSocio(idSocio);
+
+    socio = _archivoSocio.leerRegistroSocio(posicion);
+
+    cout << " MODIFICAR CONTRASENIA" << endl;
+    cout << "-----------------------------" << endl;
+    cout << " Ingrese contrasenia actual: " << endl;
+    cin >> pass;
+
+    if(!strcmp(socio.getContrasenia().c_str(), pass.c_str()))
+    {
+        cout << " Ingrese la nueva contrasenia: " << endl;
+        cin >> pass;
+        cout << " Repita la nueva contrasenia: " << endl;
+        cin >> pass2;
+        if(!strcmp(pass.c_str(), pass2.c_str()))
+        {
+            socio.setContrasenia(pass);
+            _archivoSocio.guardarSocio(socio, posicion);
+        }
+        else
+        {
+            cout << "Las contrasenias no coinciden" << endl;
+            system("pause");
+            return;
+        }
+    }
+    else
+    {
+        cout << "Contrasenia incorrecta" << endl;
+        system("pause");
+        return;
+    }
 
 }
 

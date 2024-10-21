@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "MenuSocio.h"
+#include "ServicioSocio.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ MenuSocio::MenuSocio(int idSocio)
 void MenuSocio::mostrarMenuSocio()
 {
     int opcion;
+    ServicioSocio socio;
 
     do
     {
@@ -50,7 +52,7 @@ void MenuSocio::mostrarMenuSocio()
             presentarReclamo();
             break;
         case 5:
-            modificarContrasenia();
+            socio.modificarContrasenia(_idSocio);
             break;
         case 0:
             cout << "ADIOS!" << endl;
