@@ -212,5 +212,32 @@ int GestionArchivoPagos::leerRegistrosPagosSocios(int cantidadRegistros, int vec
     fclose(pArchivo);
 
     return *vectPagos;
+}
 
+int GestionArchivoPagos::ultimoRegistroSocio(int cantidadRegistros, int idUsuario)
+{
+    int pos = -1;
+    FILE *pArchivo;
+
+    RegistroPago pago;
+
+    pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+
+    if(pArchivo == nullptr)
+    {
+        return -1;
+    }
+
+    for(int i=0; i<cantidadRegistros; i++)
+    {
+        fread(&pago, sizeof(RegistroPago), 1, pArchivo);
+        if(pago.getIdUsuario() == idUsuario)
+        {
+            pos = i;
+        }
+    }
+
+    fclose(pArchivo);
+
+    return pos;
 }

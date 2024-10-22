@@ -12,11 +12,18 @@ public:
     MenuSocio(int idSocio);
 
     void mostrarMenuSocio();
-    void realizarPago();
+    ///deberia llamarse gestionar pagos
+    void gestionarPagos();
+
     void verRutina();
     void consultarHorarios();
     void presentarReclamo();
-    void modificarContrasenia();
+    ///void modificarContrasenia(); //deberia estar en servicio
+
+    ///Precios
+    void mostrarPreciosDePases();
+    ///
+    void verHorariosGimnasio();
 
 
 private:

@@ -13,11 +13,15 @@ public:
     void modificarSocio();
     void verEntrenadorAsignado(int idSocio);
     void verHorarios();
-    void verMembresia();
+    void verMembresia(int idSocio);
     void modificarContrasenia(int idSocio);
 
     bool buscarSocioLogin(int idSocio, std::string pass);
     int obternerUltimoIdSocio();
+    int calcularFechaVencimiento();
+    void mostrarFechaVencimiento();
+
+    void realizarUnPago(int idSocio);
 
 private:
 

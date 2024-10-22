@@ -19,6 +19,7 @@ public:
 
     int cantidadDeRegistrosSocios(int cantidadRegistros, int idUsuario);
     int leerRegistrosPagosSocios(int cantidadRegistros, int vectPagos[], int tam, int idUsuario);
+    int ultimoRegistroSocio(int cantidadRegistros, int idUsuario);
 
 
 private:

@@ -81,5 +81,36 @@ int ServicioActividad::agregarActividad()
 
 void ServicioActividad::modificarActividad()
 {
+    system("cls");
+    int idActividad;
+    string nombre;
+    Actividad actividad;
 
+    cout << "Ingrese ID de Actividad a modificar: ";
+    cin >> idActividad;
+
+    int posicion = _archivoActividad.buscarActividad(idActividad);
+
+    if(posicion != 0)
+    {
+        actividad = _archivoActividad.leerRegistroActividad(posicion);
+
+        cout << "Ingrese nombre de la actividad: ";
+        cin >> nombre;
+
+        actividad.setNombre(nombre);
+
+        if(_archivoActividad.guardarActividad(actividad, posicion))
+        {
+            system("cls");
+            cout << "Cambio realizado con exito" << endl;
+        }
+
+    }
+    else
+    {
+        cout << "ID no econtrado." << endl;
+    }
+
+    system("pause");
 }

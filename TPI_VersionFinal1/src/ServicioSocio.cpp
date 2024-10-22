@@ -6,6 +6,7 @@
 #include "Fecha.h"
 
 #include "ServicioEmpleado.h"
+#include "ServicioPago.h"
 
 using namespace std;
 
@@ -108,12 +109,18 @@ void ServicioSocio::agregarSocio()
     if(_archivoSocio.guardarSocio(socio))
     {
 
-        cout << "Socio ID# " << idUsuario << " agregado exitosamente." << endl;
+        cout << " Socio ID# " << idUsuario << " agregado exitosamente." << endl;
+        cout << endl;
+        cout << " Realizar pago..." << endl;
+        system("pause");
+
+        realizarUnPago(idUsuario);
     }
     else
     {
         cout << "Error de ingreso" << endl;
     }
+
 
     system("pause");
 }
@@ -153,9 +160,33 @@ void ServicioSocio::verHorarios()
 
 }
 
-void ServicioSocio::verMembresia()
+void ServicioSocio::verMembresia(int idSocio)
 {
+    system("cls");
+    Socio socio;
 
+    int posicion = _archivoSocio.buscarSocio(idSocio);
+
+    socio = _archivoSocio.leerRegistroSocio(posicion);
+
+    cout << "--------------------------" << endl;
+    cout << "Membresia actual: ";
+
+    switch(socio.getMembresia())
+    {
+    case 0:
+        cout << "FULL" << endl;
+        break;
+    case 1:
+        cout << "SMART" << endl;
+        break;
+    case 2:
+        cout << "FIT" << endl;
+        break;
+    }
+    cout << "--------------------------" << endl;
+
+    system("pause");
 }
 
 void ServicioSocio::modificarContrasenia(int idSocio)
@@ -233,5 +264,103 @@ int ServicioSocio::obternerUltimoIdSocio()
     }
 
     return -1;
+}
+
+int ServicioSocio::calcularFechaVencimiento()
+{
+    Fecha fechaActual;
+
+    int diasPorMeses[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    int fechaDePago = 5;
+    int cantidadDeDias;
+
+    if(fechaActual.getDia() > fechaDePago)
+    {
+        cantidadDeDias = (diasPorMeses[fechaActual.getMes()-1] - fechaActual.getDia()) + fechaDePago;
+        return cantidadDeDias;
+    }
+    else
+    {
+        return fechaDePago - fechaActual.getDia();
+    }
 
 }
+
+void ServicioSocio::mostrarFechaVencimiento()
+{
+    int dia = calcularFechaVencimiento();
+    Fecha fecha;
+
+    system("cls");
+    cout << endl;
+    cout << "+---------------------------------------+" << endl;
+    if(fecha.getDia() > 5)
+    {
+        cout << "     FECHA DE VENCIMIENTO 5/" << fecha.getMes()+1 << endl;
+    }
+    else
+    {
+        cout << "     FECHA DE VENCIMIENTO 5/" << fecha.getMes() << endl;
+    }
+    cout << endl;
+    cout << " Faltan: " << dia << " dias para el vencimiento" << endl;
+    cout << "+--------------------------------------+" << endl;
+
+    system("pause");
+}
+
+void ServicioSocio::realizarUnPago(int idSocio)
+{
+    system("cls");
+
+    Socio socio;
+    ServicioPago pago;
+
+    int opcion;
+
+    int pos = _archivoSocio.buscarSocio(idSocio);
+    socio = _archivoSocio.leerRegistroSocio(pos);
+    int idMembresia = socio.getMembresia();
+
+    cout << " Membresia actual: ";
+    switch(idMembresia)
+    {
+    case 0:
+        cout << "FULL" << endl;
+        break;
+    case 1:
+        cout << "SMART" << endl;
+        break;
+    case 2:
+        cout << "FIT" << endl;
+        break;
+    }
+
+    cout << endl;
+    cout << " 1 - Confirmar | 2 - Cambiar membresia" << endl;
+    cin >> opcion;
+
+    if(opcion == 1)
+    {
+        pago.registrarPago(idSocio, idMembresia, socio.getFechaDeIngreso());
+    }
+    else
+    {
+        cout << " 0 - Full : $55.000 " << endl;
+        cout << " 1 - Smart: $35.000 " << endl;
+        cout << " 2 - Fit  : $25.000 " << endl;
+        cout << endl;
+        cout << " Su eleccion: ";
+        cin >> idMembresia;
+
+        pago.registrarPago(idSocio, idMembresia, socio.getFechaDeIngreso());
+        socio.setMembresia(idMembresia);
+
+        _archivoSocio.guardarSocio(socio, pos);
+    }
+
+
+    system("pause");
+}
+
+

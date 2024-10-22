@@ -2,6 +2,7 @@
 
 #include "MenuSocio.h"
 #include "ServicioSocio.h"
+#include "ServicioPago.h"
 
 using namespace std;
 
@@ -40,7 +41,7 @@ void MenuSocio::mostrarMenuSocio()
         switch(opcion)
         {
         case 1:
-            realizarPago();
+            gestionarPagos();
             break;
         case 2:
             verRutina();
@@ -68,9 +69,11 @@ void MenuSocio::mostrarMenuSocio()
 
 }
 
-void MenuSocio::realizarPago()
+void MenuSocio::gestionarPagos()
 {
     int opcion;
+    ServicioSocio socio;
+    ServicioPago pago;
 
     do
     {
@@ -81,6 +84,7 @@ void MenuSocio::realizarPago()
         cout << " 2 - VER PAGOS ANTERIORES " << endl;
         cout << " 3 - VER FECHA DE VENCIMIENTO " << endl;
         cout << " 4 - VER PRECIOS DIFERENTES PASES " << endl;
+        cout << " 5 - VER MI MEMBRESIA" << endl;
         cout << "-------------------------------" << endl;
         cout << " 0 - VOLVER ATRAS " << endl;
         cout << endl;
@@ -92,16 +96,19 @@ void MenuSocio::realizarPago()
         switch(opcion)
         {
         case 1:
-
+            socio.realizarUnPago(_idSocio);
             break;
         case 2:
-
+            pago.verRegistroPagos(_idSocio);
             break;
         case 3:
-
+            socio.mostrarFechaVencimiento();
             break;
         case 4:
-            ;
+            mostrarPreciosDePases();
+            break;
+        case 5:
+            socio.verMembresia(_idSocio);
             break;
         case 0:
             break;
@@ -115,9 +122,25 @@ void MenuSocio::realizarPago()
 
 }
 
+
+
+void MenuSocio::mostrarPreciosDePases()
+{
+    system("cls");
+    cout << endl;
+    cout << "+-------------------------+" << endl;
+    cout << "| - Pase Full : $55.000 - |" << endl;
+    cout << "| - Pase Smart: $35.000 - |" << endl;
+    cout << "| - Pase Fit  : $25.000 - |" << endl;
+    cout << "+-------------------------+" << endl;
+
+    system("pause");
+}
+
 void MenuSocio::verRutina()
 {
     int opcion;
+    ServicioSocio socio;
 
     do
     {
@@ -157,6 +180,7 @@ void MenuSocio::verRutina()
 void MenuSocio::consultarHorarios()
 {
     int opcion;
+    ServicioSocio socio;
 
     do
     {
@@ -164,7 +188,7 @@ void MenuSocio::consultarHorarios()
         cout << " HORARIOS" << endl;
         cout << "-----------------------------------------" << endl;
         cout << " 1 - VER HORARIOS DE ENTRENAMIENTOS " << endl;
-        cout << " 2 - VER MIS INSCRIPCIONES " << endl;
+        cout << " 2 - VER MI INSCRIPCIONES " << endl;
         cout << " 3 - VER HORARIOS DE APERTURA Y CIERRE " << endl;
         cout << "-----------------------------------------" << endl;
         cout << " 0 - VOLVER ATRAS " << endl;
@@ -183,7 +207,7 @@ void MenuSocio::consultarHorarios()
 
             break;
         case 3:
-
+            verHorariosGimnasio();
             break;
         case 0:
             break;
@@ -197,6 +221,17 @@ void MenuSocio::consultarHorarios()
 
 }
 
+void MenuSocio::verHorariosGimnasio()
+{
+    system("cls");
+    cout << endl;
+    cout << "+--------------------------+" << endl;
+    cout << "|  HORARIOS DEL GIMNASIO   |" << endl;
+    cout << "|                          |" << endl;
+    cout << "|  LUN a DOM 08hs a 00hs   |" << endl;
+    cout << "+--------------------------+" << endl;
+    system("pause");
+}
 
 
 void MenuSocio::presentarReclamo()
@@ -238,7 +273,3 @@ void MenuSocio::presentarReclamo()
 }
 
 
-void MenuSocio::modificarContrasenia()
-{
-
-}

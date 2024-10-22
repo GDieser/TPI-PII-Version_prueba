@@ -95,25 +95,6 @@ void Fecha::setFechaDefecto()
     _anio = 1;
 }
 
-int Fecha::calcularFechaVencimiento()
-{
-    Fecha fechaActual;
-
-    int diasPorMeses[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
-    int fechaDePago = 5;
-    int cantidadDeDias;
-
-    if(fechaActual.getDia() > fechaDePago)
-    {
-        cantidadDeDias = (diasPorMeses[fechaActual.getMes()-1] - fechaActual.getDia()) + fechaDePago;
-        return cantidadDeDias;
-    }
-    else
-    {
-        return fechaDePago - fechaActual.getDia();
-    }
-
-}
 
 string Fecha::toString()
 {
