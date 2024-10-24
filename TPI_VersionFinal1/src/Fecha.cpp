@@ -95,10 +95,19 @@ void Fecha::setFechaDefecto()
     _anio = 1;
 }
 
-
 string Fecha::toString()
 {
     return std::to_string(_dia) + "/" + std::to_string(_mes) + "/" + std::to_string(_anio);
 }
 
+bool Fecha::compararSiFechasSonIguales(Fecha fecha)
+{
+    Fecha fechaActual;
 
+    if(fechaActual.getAnio() == fecha.getAnio() && fechaActual.getMes() == fecha.getMes() && fechaActual.getDia() == fecha.getDia())
+    {
+        return true;
+    }
+
+    return false;
+}

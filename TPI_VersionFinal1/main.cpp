@@ -9,6 +9,7 @@
 
 #include "GestionArchivoDetalleRutinas.h"
 #include "DetalleRutina.h"
+#include "GestionArchivoAsistencias.h"
 
 using namespace std;
 
@@ -31,7 +32,6 @@ void crearDetalleRutina()
 
 int main()
 {
-
     //crearDetalleRutina();
 
     /*Fecha fecha(1,1,2000);

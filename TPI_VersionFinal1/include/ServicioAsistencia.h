@@ -7,8 +7,9 @@ class ServicioAsistencia
     public:
         ServicioAsistencia();
 
-        void registrarAsistencia();
-        void verAsistencia();
+        bool validarRegistroDeAsistencia(int idSocio, Fecha fechaActual);
+        void registrarAsistencia(int idSocio);
+        void verAsistenciaPorSocio(int idSocio);
 
     private:
 

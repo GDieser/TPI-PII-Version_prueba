@@ -18,7 +18,7 @@ class ServicioEmpleado
         void verSociosAsignados();
         void asignarHorarios();
         void verHorariosAsignados();
-        void modificarContrasenia();
+        void modificarContrasenia(int idEmpleado);
 
         bool buscarEmpleadoLogin(int idSocio, std::string pass);
         int obternerUltimoIdEmpleado();

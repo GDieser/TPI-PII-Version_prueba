@@ -23,6 +23,8 @@ public:
 
     void realizarUnPago(int idSocio);
 
+    bool validarLoginAsistenciaSocio(int idSocio, int pin);
+
 private:
 
     GestionArchivoSocios  _archivoSocio;

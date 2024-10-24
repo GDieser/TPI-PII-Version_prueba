@@ -57,7 +57,7 @@ bool GestionArchivoAsistencias::guardarAsistencia(RegistroAsistencia asistencia,
 }
 
 
-int GestionArchivoAsistencias::buscarAsistencia(int idUsuario)
+int GestionArchivoAsistencias::buscarAsistencia(int idSocio)
 {
     int posicion = 0;
     RegistroAsistencia asistencia;
@@ -73,7 +73,7 @@ int GestionArchivoAsistencias::buscarAsistencia(int idUsuario)
 
     while(fread(&asistencia, sizeof(RegistroAsistencia), 1, pArchivo))
     {
-        if(asistencia.getIdUsuario() == idUsuario)
+        if(asistencia.getIdSocio() == idSocio)
         {
             fclose(pArchivo);
             return posicion;

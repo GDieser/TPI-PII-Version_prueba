@@ -11,6 +11,9 @@ public:
     bool verificarLoginSocio(int &idUsuario, std::string &pass);
     bool verificarLoginEmpleado(int &idUsuario, std::string &pass);
 
+    bool mostrarSubmenuSocio(int &idUsuario, std::string &pass);
+    bool mostrarMenuIngresoSocio();
+
 protected:
 
     int _opcion;

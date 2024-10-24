@@ -9,20 +9,15 @@ RegistroAsistencia::RegistroAsistencia()
     //ctor
 }
 
-RegistroAsistencia::RegistroAsistencia(int idUsuario, int idActividad, Fecha fecha)
+RegistroAsistencia::RegistroAsistencia(int idSocio, Fecha fecha)
 {
-    setIdUsuario(idUsuario);
-    setIdActividad(idActividad);
+    setIdSocio(idSocio);
     setFecha(fecha);
 }
 
-int RegistroAsistencia::getIdUsuario()
+int RegistroAsistencia::getIdSocio()
 {
-    return _idUsuario;
-}
-int RegistroAsistencia::getIdActividad()
-{
-    return _idActividad;
+    return _idSocio;
 }
 
 Fecha RegistroAsistencia::getFecha()
@@ -30,18 +25,13 @@ Fecha RegistroAsistencia::getFecha()
     return _fecha;
 }
 
-void RegistroAsistencia::setIdUsuario(int idUsuario)
+void RegistroAsistencia::setIdSocio(int idSocio)
 {
-    _idUsuario = idUsuario;
-}
-void RegistroAsistencia::setIdActividad(int idActividad)
-{
-    _idActividad = idActividad;
+    _idSocio = idSocio;
 }
 
 void RegistroAsistencia::setFecha(Fecha fecha)
 {
     _fecha = fecha;
 }
-
 

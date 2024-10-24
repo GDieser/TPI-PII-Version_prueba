@@ -26,6 +26,8 @@ public:
 
     std::string toString();
 
+    bool compararSiFechasSonIguales(Fecha fecha);
+
 private:
 
     int _dia;

@@ -5,6 +5,7 @@
 #include "ServicioSocio.h"
 #include "ServicioEmpleado.h"
 #include "ServicioReclamo.h"
+#include "ServicioPago.h"
 
 using namespace std;
 
@@ -244,6 +245,7 @@ void MenuGerente::gestionarGerentes()
 void MenuGerente::gestionarPagos()
 {
     int opcion;
+    ServicioPago pago;
 
     do
     {
@@ -251,9 +253,10 @@ void MenuGerente::gestionarPagos()
         cout << " PAGOS DE SOCIOS " << endl;
         cout << "------------------------------------" << endl;
         cout << " 1 - VER LISTA DE PAGOS PENDIENTES" << endl;
-        cout << " 2 - VER LISTA DE PAGOS REALIZADOS" << endl;
-        cout << " 3 - VER LISTA DE TIPOS DE PASES " << endl;
-        cout << " 4 - LISTA DE DEUDORES" << endl;
+        cout << " 2 - VER LISTA DE PAGOS POR MES" << endl;
+        cout << " 3 - VER LISTA DE PAGOS POR ANIO" << endl;
+        cout << " 4 - VER LISTA POR TIPOS DE PASES " << endl;
+        cout << " 5 - LISTA DE DEUDORES" << endl;
         cout << "------------------------------------" << endl;
         cout << " 0 - VOLVER ATRAS " << endl;
         cout << endl;
@@ -268,12 +271,15 @@ void MenuGerente::gestionarPagos()
 
             break;
         case 2:
-
+            pago.verRegistroPagosPorMes();
             break;
         case 3:
-
+            pago.verRegistroPagosPorAnio();
             break;
         case 4:
+
+            break;
+        case 5:
 
             break;
         case 0:
@@ -337,14 +343,14 @@ void MenuGerente::verEstadisticas()
 {
     int opcion;
 
+    ServicioPago pago;
     do
     {
         system("cls");
         cout << " ESTADISTICAS " << endl;
         cout << "---------------------------------------------" << endl;
-        cout << " 1 - VER ESTADISICAS DE INGRESOS" << endl;
-        cout << " 2 - VER ESTADISTICA DE PAGOS" << endl;
-        cout << " 3 - VER ESTADISICAS DE GANANCIAS" << endl;
+        cout << " 1 - VER ESTADISICAS DE INGRESOS POR ANIO" << endl;
+        cout << " 2 - VER ESTADISTICA DE INGRESOS POR MES" << endl;
         cout << "---------------------------------------------" << endl;
         cout << " 0 - VOLVER ATRAS " << endl;
         cout << endl;
@@ -356,15 +362,10 @@ void MenuGerente::verEstadisticas()
         switch(opcion)
         {
         case 1:
-
+            pago.verIngresosAnuales();
             break;
         case 2:
-
-            break;
-        case 3:
-
-            break;
-        case 0:
+            pago.verIngresosMensuales();
             break;
         default:
             cout << "Opcion incorrecta" << endl;

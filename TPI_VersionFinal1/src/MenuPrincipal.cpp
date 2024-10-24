@@ -8,6 +8,7 @@
 
 #include "ServicioSocio.h"
 #include "ServicioEmpleado.h"
+#include "ServicioAsistencia.h"
 
 using namespace std;
 
@@ -34,18 +35,18 @@ void MenuPrincipal::mostrarMenuInicio()
 
     while(valido == false && _opcion > 0 && _opcion < 4)
     {
-        mostrarMenuLogin(idUsuario, pass);
-
         system("cls");
         switch(_opcion)
         {
         case 1:
-            valido = verificarLoginSocio(idUsuario, pass);
+            valido = mostrarSubmenuSocio(idUsuario, pass);
             break;
         case 2:
+            mostrarMenuLogin(idUsuario, pass);
             valido = verificarLoginEmpleado(idUsuario, pass);
             break;
         case 3:
+            mostrarMenuLogin(idUsuario, pass);
             valido = verificarLoginEmpleado(idUsuario, pass);
             break;
         }
@@ -53,13 +54,6 @@ void MenuPrincipal::mostrarMenuInicio()
 
     switch(_opcion)
     {
-    case 1:
-    {
-        MenuSocio menuSocio(idUsuario);
-        menuSocio.mostrarMenuSocio();
-    }
-
-    break;
     case 2:
     {
         MenuEntrenador menuEntrenador(idUsuario);
@@ -74,9 +68,6 @@ void MenuPrincipal::mostrarMenuInicio()
     }
 
     break;
-    default:
-        cout << "Opcion incorrecta" << endl;
-        break;
     }
 
 }
@@ -125,4 +116,75 @@ bool MenuPrincipal::verificarLoginEmpleado(int &idUsuario, string &pass)
     }
 
     return false;
+}
+
+bool MenuPrincipal::mostrarSubmenuSocio(int &idUsuario, string &pass)
+{
+    bool valido = false;
+
+    system("cls");
+    int opcion;
+    int intentos = 0;
+
+    cout << " -- SELECCION DE INGRESO -- " << endl;
+    cout << endl;
+    cout << " 1 - Ingreso al Gimnasio " << endl;
+    cout << " 2 - Ingreso al Menu Socio " << endl;
+    cout << endl;
+    cout << "Su seleccion: ";
+    cin >> opcion;
+
+    if(opcion == 1)
+    {
+        while(intentos < 3 && valido == false)
+        {
+            valido = mostrarMenuIngresoSocio();
+            return valido;
+        }
+    }
+    else
+    {
+        while(intentos < 3 && valido == false)
+        {
+            mostrarMenuLogin(idUsuario, pass);
+            valido = verificarLoginSocio(idUsuario, pass);
+            intentos++;
+        }
+    }
+    if(valido)
+    {
+        MenuSocio menuSocio(idUsuario);
+        menuSocio.mostrarMenuSocio();
+
+        return valido;
+    }
+}
+
+bool MenuPrincipal::mostrarMenuIngresoSocio()
+{
+    ServicioSocio socio;
+    ServicioAsistencia asistencia;
+
+    bool valido;
+    int idUsuario;
+    int pin;
+
+    system("cls");
+
+    cout << " ID: ";
+    cin >> idUsuario;
+    cout << " PIN: ";
+    cin >> pin;
+
+    if(socio.validarLoginAsistenciaSocio(idUsuario, pin))
+    {
+        system("cls");
+        cout << "Bienvenido" << endl;
+        system("pause");
+
+        asistencia.registrarAsistencia(idUsuario);
+
+        return true;
+    }
+
 }

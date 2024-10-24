@@ -363,4 +363,27 @@ void ServicioSocio::realizarUnPago(int idSocio)
     system("pause");
 }
 
+bool ServicioSocio::validarLoginAsistenciaSocio(int idSocio, int pin)
+{
+    system("cls");
+    Socio socio;
+
+
+    int cantidad = _archivoSocio.cantidadRegistrosSocios();
+
+    for(int i=0; i<cantidad; i++)
+    {
+        socio = _archivoSocio.leerRegistroSocio(i);
+
+        if(socio.getIdUsuario() == idSocio && socio.getPinIngreso() == pin)
+        {
+            return true;
+        }
+    }
+
+    return false;
+
+    system("pause");
+}
+
 

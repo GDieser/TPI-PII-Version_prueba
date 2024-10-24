@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "MenuEntrenador.h"
+#include "ServicioEmpleado.h"
 #include "ServicioReclamo.h"
 #include "ServicioEjercicio.h"
 #include "ServicioRutina.h"
@@ -20,6 +21,7 @@ MenuEntrenador::MenuEntrenador(int idEntrenador)
 void MenuEntrenador::mostrarMenuEntrenador()
 {
     int opcion;
+    ServicioEmpleado entrenador;
 
     do
     {
@@ -49,7 +51,7 @@ void MenuEntrenador::mostrarMenuEntrenador()
             verReclamos();
             break;
         case 4:
-            modificarContrasenia();
+            entrenador.modificarContrasenia(_idEntrenador);
             break;
         case 0:
             break;
@@ -117,7 +119,7 @@ void MenuEntrenador::crearModificarRutina()
         cout << " 1 - VER MIS RUTINAS" << endl;
         cout << " 2 - VER DETALLES RUTINAS" << endl;
         cout << " 3 - CREAR UNA RUTINA " << endl;
-        cout << " 4 - BUSCAR UNA RUTINA " << endl;
+        cout << " 4 - BUSCAR UNA RUTINA " << endl;///Capaz volar
         cout << " 5 - MODIFICAR UNA RUTINA " << endl;
         cout << " 6 - VER EJERCICIOS " << endl;
         cout << " 7 - AGREGAR UN EJERCICIO " << endl;
@@ -205,11 +207,5 @@ void MenuEntrenador::verReclamos()
 
     }
     while(opcion != 0);
-
-}
-
-
-void MenuEntrenador::modificarContrasenia()
-{
 
 }

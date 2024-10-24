@@ -100,7 +100,7 @@ void MenuSocio::gestionarPagos()
             socio.realizarUnPago(_idSocio);
             break;
         case 2:
-            pago.verRegistroPagos(_idSocio);
+            pago.verRegistroPagosPorSocio(_idSocio);
             break;
         case 3:
             socio.mostrarFechaVencimiento();

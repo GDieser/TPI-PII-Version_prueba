@@ -25,7 +25,6 @@ public:
     ///
     void verHorariosGimnasio();
 
-
 private:
 
     int _idSocio;

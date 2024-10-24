@@ -216,11 +216,6 @@ void ServicioEmpleado::verHorariosAsignados()
 
 }
 
-void ServicioEmpleado::modificarContrasenia()
-{
-
-}
-
 bool ServicioEmpleado::buscarEmpleadoLogin(int idEmpleado, string pass)
 {
     Empleado empleado;
@@ -284,4 +279,48 @@ int ServicioEmpleado::obternerUltimoLegajo()
     }
 
     return -1;
+}
+
+
+void ServicioEmpleado::modificarContrasenia(int idEmpleado)
+{
+    system("cls");
+    string pass, pass2;
+    Empleado empleado;
+
+
+    int posicion = _archivoEmpleado.buscarEmpleado(idEmpleado);
+
+    empleado = _archivoEmpleado.leerRegistroEmpleado(posicion);
+
+    cout << " MODIFICAR CONTRASENIA" << endl;
+    cout << "-----------------------------" << endl;
+    cout << " Ingrese contrasenia actual: " << endl;
+    cin >> pass;
+
+    if(!strcmp(empleado.getContrasenia().c_str(), pass.c_str()))
+    {
+        cout << " Ingrese la nueva contrasenia: " << endl;
+        cin >> pass;
+        cout << " Repita la nueva contrasenia: " << endl;
+        cin >> pass2;
+        if(!strcmp(pass.c_str(), pass2.c_str()))
+        {
+            empleado.setContrasenia(pass);
+            _archivoEmpleado.guardarEmpleado(empleado, posicion);
+        }
+        else
+        {
+            cout << "Las contrasenias no coinciden" << endl;
+            system("pause");
+            return;
+        }
+    }
+    else
+    {
+        cout << "Contrasenia incorrecta" << endl;
+        system("pause");
+        return;
+    }
+
 }

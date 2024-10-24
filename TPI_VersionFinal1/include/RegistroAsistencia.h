@@ -8,19 +8,22 @@ class RegistroAsistencia
 public:
     RegistroAsistencia();
 
-    RegistroAsistencia(int idUsuario, int idActividad, Fecha fecha);
+    RegistroAsistencia(int idSocio, Fecha fecha);
 
-    int getIdUsuario();
-    int getIdActividad();
+    int getIdSocio();
     Fecha getFecha();
 
-    void setIdUsuario(int idUsuario);
-    void setIdActividad(int idActividad);
+    //int getIdActividad();
+
+    void setIdSocio(int idSocio);
     void setFecha(Fecha fecha);
+
+    //void setIdActividad(int idActividad);
 
 private:
 
-    int _idUsuario;
-    int _idActividad;
+    int _idSocio;
     Fecha _fecha;
+
+    //int _idActividad;
 };
