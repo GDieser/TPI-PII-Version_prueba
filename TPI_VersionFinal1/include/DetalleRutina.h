@@ -5,14 +5,14 @@ class DetalleRutina
 {
 public:
     DetalleRutina();
-    DetalleRutina(int idEjercicios[], int tam, int idRutina, int repeticiones[], int tam2,  float peso[], int tam3);
+    DetalleRutina(int *idEjercicios, int idRutina, int *repeticiones, float *peso);
 
-    int getIdEjercicios();
+    int* getIdEjercicios();
     int getIdRutina();
-    int getRepeticiones();
-    float getPeso();
+    int* getRepeticiones();
+    float* getPeso();
 
-    void setIdEjercicios(int idEjercicios[], int tam);
+    void setIdEjercicios(int *idEjercicios);
     void setIdRutina(int idRutina);
     void setRepeticiones(int *repeticiones);
     void setPeso(float *peso);

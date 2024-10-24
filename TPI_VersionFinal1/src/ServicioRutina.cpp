@@ -49,9 +49,6 @@ void ServicioRutina::verDetallesDeRutina()
     system("cls");
     int idRutina;
 
-    int idEjercicios[10], repeticiones[10];
-    float peso[10];
-
     DetalleRutina detalle;
 
     cout << " Ingrese ID de Rutina: ";
@@ -63,16 +60,19 @@ void ServicioRutina::verDetallesDeRutina()
     {
         detalle = _archivoDetallesRutina.leerRegistroDetalleRutina(pos);
 
-        *idEjercicios = detalle.getIdEjercicios();
-        *repeticiones = detalle.getRepeticiones();
-        *peso = detalle.getPeso();
+        int *idEjercicios = detalle.getIdEjercicios();
+        int *repeticiones = detalle.getRepeticiones();
+        float *peso = detalle.getPeso();
 
         cout << " ID Rutina: #" << idRutina << endl;
 
         for(int i=0; i<10; i++)
         {
-            cout << " ID Ejercicio: #" << idEjercicios[i] << endl;
-            cout << " Repeticiones: " << repeticiones[i] << endl;
+            if(idEjercicios[i] != 0)
+            {
+                cout << " ID Ejercicio: #" << idEjercicios[i] << endl;
+                cout << " Repeticiones: " << repeticiones[i] << endl;
+            }
             if(peso[i] != 0)
             {
                 cout << " Peso: " << peso[i] << endl;
@@ -143,8 +143,8 @@ void ServicioRutina::crearRutina(int idEntrenador)
 DetalleRutina ServicioRutina::crearDetalleRutina(int idRutina)
 {
     int opcion = 1, contador = 0;
-    int idEjercicio[10]={}, repeticiones[10]={};
-    float peso[10]={};
+    int idEjercicio[10]= {}, repeticiones[10]= {};
+    float peso[10]= {};
 
     while(contador < 10 && opcion != 0)
     {
@@ -170,7 +170,7 @@ DetalleRutina ServicioRutina::crearDetalleRutina(int idRutina)
 
 
 
-    return DetalleRutina(idEjercicio, 10, idRutina, repeticiones, 10, peso, 10);
+    return DetalleRutina(idEjercicio, idRutina, repeticiones, peso);
 }
 
 void ServicioRutina::modificarRutina(int idEntrenador)
