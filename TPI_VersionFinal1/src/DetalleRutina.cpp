@@ -9,17 +9,19 @@ DetalleRutina::DetalleRutina()
     //ctor
 }
 
-DetalleRutina::DetalleRutina(int idEjercicio, int idRutina, int repeticiones, float peso)
+DetalleRutina::DetalleRutina(int idEjercicios[], int tam, int idRutina, int repeticiones[], int tam2,  float peso[], int tam3)
 {
-    setIdEjercicio(idEjercicio);
-    setIdRutina(idRutina);
+
+    setIdEjercicios(idEjercicios, tam);
     setRepeticiones(repeticiones);
     setPeso(peso);
+
+    setIdRutina(idRutina);
 }
 
-int DetalleRutina::getIdEjercicio()
+int DetalleRutina::getIdEjercicios()
 {
-    return _idEjercicio;
+    return *_idEjercicios;
 }
 int DetalleRutina::getIdRutina()
 {
@@ -27,26 +29,35 @@ int DetalleRutina::getIdRutina()
 }
 int DetalleRutina::getRepeticiones()
 {
-    return _repeticiones;
+    return *_repeticiones;
 }
 float DetalleRutina::getPeso()
 {
-    return _peso;
+    return *_peso;
 }
 
-void DetalleRutina::setIdEjercicio(int idEjercicio)
+void DetalleRutina::setIdEjercicios(int idEjercicios[], int tam)
 {
-    _idEjercicio = idEjercicio;
+
+    for(int i=0; i<10; i++)
+    {
+        _idEjercicios[i] = idEjercicios[i];
+    }
+
 }
 void DetalleRutina::setIdRutina(int idRutina)
 {
     _idRutina = idRutina;
 }
-void DetalleRutina::setRepeticiones(int repeticiones)
+void DetalleRutina::setRepeticiones(int *repeticiones)
 {
-    _repeticiones = repeticiones;
+
+    *_repeticiones = *repeticiones;
+
 }
-void DetalleRutina::setPeso(float peso)
+void DetalleRutina::setPeso(float *peso)
 {
-    _peso = peso;
+
+    *_peso = *peso;
+
 }

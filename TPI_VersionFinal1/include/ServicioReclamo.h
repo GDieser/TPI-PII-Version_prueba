@@ -7,10 +7,12 @@ class ServicioReclamo
     public:
         ServicioReclamo();
 
-        void verReclamo();
-        void verReclamoUsusario();
-        void iniciarReclamo();
+        void verReclamos(bool resuelto);
+        void verReclamoUsusario(int idUsuario);
+        void iniciarReclamo(int idUsuario);
         void cambiarEstadoReclamo();
+
+        int obtenerUltimoIdReclamo();
 
     private:
 

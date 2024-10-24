@@ -2,20 +2,25 @@
 
 #include "GestionArchivoDetalleRutinas.h"
 #include "GestionArchivoRutinas.h"
+#include "DetalleRutina.h"
 
 class ServicioRutina
 {
     public:
         ServicioRutina();
 
-        void verRutina();
-        void crearRutina();
-        void modificarRutina();
+        void verRutinas(int idEntrenador);
+        void crearRutina(int idEntrenador);
+        void modificarRutina(int idEntrenador);
         void asignarRutina();
+
+        int obtenerUltimoIdRutina();
+        DetalleRutina crearDetalleRutina(int idRutina);
+        void verDetallesDeRutina();
 
     private:
 
-        GestionArchivoDetalleRutinas _archivoDetallesRutina();
+        GestionArchivoDetalleRutinas _archivoDetallesRutina;
         GestionArchivoRutinas _archivoRutina;
 };
 

@@ -154,8 +154,6 @@ void GestionArchivoPagos::leerRegistrosPagos(int cantidadRegistros, RegistroPago
 
 }
 
-
-
 int GestionArchivoPagos::cantidadDeRegistrosSocios(int cantidadRegistros, int idUsuario)
 {
     int cont = 0;

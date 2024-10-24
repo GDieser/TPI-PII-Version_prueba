@@ -1,6 +1,9 @@
 #include <iostream>
 
 #include "MenuEntrenador.h"
+#include "ServicioReclamo.h"
+#include "ServicioEjercicio.h"
+#include "ServicioRutina.h"
 
 using namespace std;
 
@@ -24,7 +27,7 @@ void MenuEntrenador::mostrarMenuEntrenador()
         cout << " ENTRENADOR: #" << _idEntrenador << endl;
         cout << "-------------------" <<endl;
         cout << " 1 - HORARIOS " << endl;
-        cout << " 2 - RUTINAS " << endl;
+        cout << " 2 - RUTINAS Y EJERCICIOS" << endl;
         cout << " 3 - RECLAMOS " << endl;
         cout << " 4 - CAMBIAR CONTRASENIA " << endl;
         cout << "-------------------" <<endl;
@@ -102,6 +105,8 @@ void MenuEntrenador::verHorariosYSociosAsignados()
 
 void MenuEntrenador::crearModificarRutina()
 {
+    ServicioEjercicio ejercicio;
+    ServicioRutina rutina;
     int opcion;
 
     do
@@ -110,9 +115,13 @@ void MenuEntrenador::crearModificarRutina()
         cout << " RUTINAS " << endl;
         cout << "---------------------------------" <<endl;
         cout << " 1 - VER MIS RUTINAS" << endl;
-        cout << " 2 - CREAR UNA RUTINA " << endl;
-        cout << " 3 - BUSCAR UNA RUTINA " << endl;
-        cout << " 4 - MODIFICAR UNA RUTINA " << endl;
+        cout << " 2 - VER DETALLES RUTINAS" << endl;
+        cout << " 3 - CREAR UNA RUTINA " << endl;
+        cout << " 4 - BUSCAR UNA RUTINA " << endl;
+        cout << " 5 - MODIFICAR UNA RUTINA " << endl;
+        cout << " 6 - VER EJERCICIOS " << endl;
+        cout << " 7 - AGREGAR UN EJERCICIO " << endl;
+        cout << " 8 - MODIFICAR UN EJERCICIO " << endl;
         cout << "---------------------------------" <<endl;
         cout << "0 - VOLVER ATRAS " << endl;
         cout << endl;
@@ -124,16 +133,28 @@ void MenuEntrenador::crearModificarRutina()
         switch(opcion)
         {
         case 1:
-
+            rutina.verRutinas(_idEntrenador);
             break;
         case 2:
-
+            rutina.verDetallesDeRutina();
             break;
         case 3:
-
+            rutina.crearRutina(_idEntrenador);
             break;
         case 4:
 
+            break;
+        case 5:
+
+            break;
+        case 6:
+            ejercicio.verEjercicios();
+            break;
+        case 7:
+            ejercicio.agregarEjercicio();
+            break;
+        case 8:
+            ejercicio.modificarEjercicio();
             break;
         default:
             cout << "Opcion incorrecta" << endl;
@@ -149,6 +170,7 @@ void MenuEntrenador::crearModificarRutina()
 void MenuEntrenador::verReclamos()
 {
     int opcion;
+    ServicioReclamo reclamo;
 
     do
     {
@@ -168,9 +190,10 @@ void MenuEntrenador::verReclamos()
         switch(opcion)
         {
         case 1:
-
+            reclamo.iniciarReclamo(_idEntrenador);
             break;
         case 2:
+            reclamo.verReclamoUsusario(_idEntrenador);
             break;
         case 0:
             break;

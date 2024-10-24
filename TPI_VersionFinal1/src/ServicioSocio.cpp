@@ -271,7 +271,7 @@ int ServicioSocio::calcularFechaVencimiento()
     Fecha fechaActual;
 
     int diasPorMeses[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
-    int fechaDePago = 5;
+    int fechaDePago = 10;
     int cantidadDeDias;
 
     if(fechaActual.getDia() > fechaDePago)
@@ -296,11 +296,11 @@ void ServicioSocio::mostrarFechaVencimiento()
     cout << "+---------------------------------------+" << endl;
     if(fecha.getDia() > 5)
     {
-        cout << "     FECHA DE VENCIMIENTO 5/" << fecha.getMes()+1 << endl;
+        cout << "     FECHA DE VENCIMIENTO 10/" << fecha.getMes()+1 << endl;
     }
     else
     {
-        cout << "     FECHA DE VENCIMIENTO 5/" << fecha.getMes() << endl;
+        cout << "     FECHA DE VENCIMIENTO 10/" << fecha.getMes() << endl;
     }
     cout << endl;
     cout << " Faltan: " << dia << " dias para el vencimiento" << endl;

@@ -4,6 +4,7 @@
 
 #include "ServicioSocio.h"
 #include "ServicioEmpleado.h"
+#include "ServicioReclamo.h"
 
 using namespace std;
 
@@ -291,14 +292,15 @@ void MenuGerente::gestionarPagos()
 void MenuGerente::gestionarReclamos()
 {
     int opcion;
+    ServicioReclamo reclamo;
 
     do
     {
         system("cls");
         cout << " RECLAMOS" << endl;
         cout << "-------------------------------------------" << endl;
-        cout << " 1 - VER LISTA DE RECLAMOS" << endl;
-        cout << " 2 - VER LISTA DE RECLAMOS CERRADOS" << endl;
+        cout << " 1 - VER LISTA DE RECLAMOS ACTIVOS" << endl;
+        cout << " 2 - VER LISTA DE RECLAMOS RESUELTOS" << endl;
         cout << " 3 - MODIFICAR RECLAMO" << endl;
         cout << "-------------------------------------------" << endl;
         cout << " 0 - VOLVER ATRAS " << endl;
@@ -311,13 +313,13 @@ void MenuGerente::gestionarReclamos()
         switch(opcion)
         {
         case 1:
-
+            reclamo.verReclamos(false);
             break;
         case 2:
-
+            reclamo.verReclamos(true);
             break;
         case 3:
-
+            reclamo.cambiarEstadoReclamo();
             break;
         case 0:
             break;

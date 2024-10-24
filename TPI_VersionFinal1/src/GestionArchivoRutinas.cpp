@@ -145,3 +145,63 @@ void GestionArchivoRutinas::leerRegistrosRutina(int cantidadRegistros, Rutina *v
 
     fclose(pArchivo);
 }
+
+int GestionArchivoRutinas::cantidadDeRegistrosPorEntrenador(int cantidadRegistros, int idEntrenador)
+{
+    int cont = 0;
+    FILE *pArchivo;
+
+    Rutina rutina;
+
+    pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+
+    if(pArchivo == nullptr)
+    {
+        return -1;
+    }
+
+    for(int i=0; i<cantidadRegistros; i++)
+    {
+        fread(&rutina, sizeof(Rutina), 1, pArchivo);
+        if(rutina.getIdEntrenador() == idEntrenador)
+        {
+            cont++;
+        }
+    }
+
+    fclose(pArchivo);
+
+    return cont;
+
+}
+
+int GestionArchivoRutinas::leerRegistrosRutinasPorEntrenador(int cantidadRegistros, int vectRutina[], int tam, int idEntrenador)
+{
+    int cont = 0, indice = 0;
+    FILE *pArchivo;
+
+    Rutina rutina;
+
+    pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+
+    if(pArchivo == nullptr)
+    {
+        return -1;
+    }
+
+    for(int i=0; i<cantidadRegistros; i++)
+    {
+        fread(&rutina, sizeof(Rutina), 1, pArchivo);
+        if(rutina.getIdEntrenador() == idEntrenador)
+        {
+            vectRutina[indice] = i;
+            indice++;
+        }
+    }
+
+    fclose(pArchivo);
+
+    return *vectRutina;
+}
+
+

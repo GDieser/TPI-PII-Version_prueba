@@ -3,6 +3,7 @@
 #include "MenuSocio.h"
 #include "ServicioSocio.h"
 #include "ServicioPago.h"
+#include "ServicioReclamo.h"
 
 using namespace std;
 
@@ -110,8 +111,6 @@ void MenuSocio::gestionarPagos()
         case 5:
             socio.verMembresia(_idSocio);
             break;
-        case 0:
-            break;
         default:
             cout << "Opcion incorrecta" << endl;
             break;
@@ -165,8 +164,6 @@ void MenuSocio::verRutina()
         case 2:
 
             break;
-        case 0:
-            break;
         default:
             cout << "ERROR" << endl;
             break;
@@ -188,7 +185,7 @@ void MenuSocio::consultarHorarios()
         cout << " HORARIOS" << endl;
         cout << "-----------------------------------------" << endl;
         cout << " 1 - VER HORARIOS DE ENTRENAMIENTOS " << endl;
-        cout << " 2 - VER MI INSCRIPCIONES " << endl;
+        cout << " 2 - VER MIS INSCRIPCIONES " << endl;
         cout << " 3 - VER HORARIOS DE APERTURA Y CIERRE " << endl;
         cout << "-----------------------------------------" << endl;
         cout << " 0 - VOLVER ATRAS " << endl;
@@ -208,8 +205,6 @@ void MenuSocio::consultarHorarios()
             break;
         case 3:
             verHorariosGimnasio();
-            break;
-        case 0:
             break;
         default:
             cout << "Opcion incorrecta" << endl;
@@ -237,6 +232,7 @@ void MenuSocio::verHorariosGimnasio()
 void MenuSocio::presentarReclamo()
 {
     int opcion;
+    ServicioReclamo reclamo;
 
     do
     {
@@ -256,11 +252,10 @@ void MenuSocio::presentarReclamo()
         switch(opcion)
         {
         case 1:
-
+            reclamo.iniciarReclamo(_idSocio);
             break;
         case 2:
-            break;
-        case 0:
+            reclamo.verReclamoUsusario(_idSocio);
             break;
         default:
             cout << "ERROR" << endl;

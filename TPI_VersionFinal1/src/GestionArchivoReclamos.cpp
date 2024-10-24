@@ -54,7 +54,7 @@ bool GestionArchivoReclamos::guardarReclamo(Reclamo reclamo, int posicion)
     return guardo;
 }
 
-int GestionArchivoReclamos::buscarReclamo(int idUsuario)
+int GestionArchivoReclamos::buscarReclamo(int idReclamo)
 {
     int posicion = 0;
     Reclamo reclamo;
@@ -70,7 +70,7 @@ int GestionArchivoReclamos::buscarReclamo(int idUsuario)
 
     while(fread(&reclamo, sizeof(Reclamo), 1, pArchivo))
     {
-        if(reclamo.getIdUsuario() == idUsuario)
+        if(reclamo.getIdReclamo() == idReclamo)
         {
             fclose(pArchivo);
             return posicion;
@@ -144,4 +144,62 @@ void GestionArchivoReclamos::leerRegistrosReclamo(int cantidadRegistros, Reclamo
     }
 
     fclose(pArchivo);
+}
+
+int GestionArchivoReclamos::cantidadDeRegistrosPorUsuario(int cantidadRegistros, int idUsuario)
+{
+    int cont = 0;
+    FILE *pArchivo;
+
+    Reclamo reclamo;
+
+    pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+
+    if(pArchivo == nullptr)
+    {
+        return -1;
+    }
+
+    for(int i=0; i<cantidadRegistros; i++)
+    {
+        fread(&reclamo, sizeof(Reclamo), 1, pArchivo);
+        if(reclamo.getIdUsuario() == idUsuario)
+        {
+            cont++;
+        }
+    }
+
+    fclose(pArchivo);
+
+    return cont;
+
+}
+
+int GestionArchivoReclamos::leerRegistrosPorUsuario(int cantidadRegistros, int vectReclamos[], int tam, int idUsuario)
+{
+    int cont = 0, indice = 0;
+    FILE *pArchivo;
+
+    Reclamo reclamo;
+
+    pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+
+    if(pArchivo == nullptr)
+    {
+        return -1;
+    }
+
+    for(int i=0; i<cantidadRegistros; i++)
+    {
+        fread(&reclamo, sizeof(Reclamo), 1, pArchivo);
+        if(reclamo.getIdUsuario() == idUsuario)
+        {
+            vectReclamos[indice] = i;
+            indice++;
+        }
+    }
+
+    fclose(pArchivo);
+
+    return *vectReclamos;
 }

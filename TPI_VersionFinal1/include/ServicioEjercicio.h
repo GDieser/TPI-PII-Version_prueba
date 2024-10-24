@@ -7,9 +7,11 @@ class ServicioEjercicio
     public:
         ServicioEjercicio();
 
-        void verEjercicio();
+        void verEjercicios();
         void agregarEjercicio();
         void modificarEjercicio();
+
+        int obtenerUltimoIdEjercicio();
 
     private:
 

@@ -7,10 +7,33 @@
 #include "GestionArchivoEmpleados.h"
 #include "ServicioActividad.h"
 
+#include "GestionArchivoDetalleRutinas.h"
+#include "DetalleRutina.h"
+
 using namespace std;
+
+void crearDetalleRutina()
+{
+    GestionArchivoDetalleRutinas archi("archivoDetalleRutinas.dat");
+    DetalleRutina rutina;
+
+    int cantidad = archi.cantidadRegistrosDetalleRutina();
+
+    for(int i=0; i<cantidad; i++)
+    {
+        rutina = archi.leerRegistroDetalleRutina(i);
+
+        cout << rutina.getIdRutina();
+    }
+
+}
+
 
 int main()
 {
+
+    //crearDetalleRutina();
+
     /*Fecha fecha(1,1,2000);
 
     Fecha fecha2;
