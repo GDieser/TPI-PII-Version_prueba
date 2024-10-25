@@ -114,3 +114,25 @@ void ServicioActividad::modificarActividad()
 
     system("pause");
 }
+
+void ServicioActividad::buscarActividad(int idActividad)
+{
+    //system("cls");
+
+    Actividad actividad;
+
+    int pos = _archivoActividad.buscarActividad(idActividad);
+
+    if(pos != -1)
+    {
+        actividad = _archivoActividad.leerRegistroActividad(pos);
+
+        cout << " Nombre Actividad: " << actividad.getNombre() << endl;
+        cout << " ID actividad: #" << actividad.getIdActividad() << endl;
+    }
+    else
+    {
+        cout << "Actvidad no encontrada..." << endl;
+    }
+
+}

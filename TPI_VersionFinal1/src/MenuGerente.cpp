@@ -93,6 +93,7 @@ void MenuGerente::gestionarSocios()
         cout << " 3 - MODIFICAR SOCIO " << endl;
         cout << " 4 - BUSCAR SOCIO " << endl;
         cout << " 5 - RESTAURAR SOCIO " << endl;
+        cout << " 6 - ASIGNAR ENTRENADOR " << endl;
         cout << "----------------------------------------" << endl;
         cout << " 0 - VOLVER ATRAS " << endl;
         cout << endl;
@@ -118,7 +119,8 @@ void MenuGerente::gestionarSocios()
         case 5:
 
             break;
-        case 0:
+        case 6:
+            socio.asignarEntrenadorASocio();
             break;
         default:
             cout << "Opcion incorrecta" << endl;

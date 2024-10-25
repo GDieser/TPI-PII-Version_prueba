@@ -324,3 +324,26 @@ void ServicioEmpleado::modificarContrasenia(int idEmpleado)
     }
 
 }
+
+bool ServicioEmpleado::buscarUnEmpleado(int idEmpleado)
+{
+    Empleado empleado;
+    ServicioActividad actividad;
+
+    int pos = _archivoEmpleado.buscarEmpleado(idEmpleado);
+
+    if(pos != -1)
+    {
+        empleado = _archivoEmpleado.leerRegistroEmpleado(pos);
+
+        cout << " Nombre: " << empleado.getNombre() << endl;
+        cout << " Legajo: " << empleado.getLegajo() << endl;
+        actividad.buscarActividad(empleado.getIdActividadPrincipal());
+
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

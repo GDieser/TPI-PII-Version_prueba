@@ -134,6 +134,7 @@ void ServicioSocio::verEntrenadorAsignado(int idSocio)
     system("cls");
     Socio socio;
 
+
     int posicion = _archivoSocio.buscarSocio(idSocio);
 
     socio = _archivoSocio.leerRegistroSocio(posicion);
@@ -384,6 +385,64 @@ bool ServicioSocio::validarLoginAsistenciaSocio(int idSocio, int pin)
     return false;
 
     system("pause");
+}
+
+void ServicioSocio::asignarEntrenadorASocio()
+{
+    system("cls");
+    Socio socio;
+    ServicioEmpleado entrenador;
+    int idSocio, idEntrenador;
+
+    cout << "----------------------------------------" << endl;
+    cout << " Ingrese ID de Socio: ";
+    cin >> idSocio;
+
+    int pos = _archivoSocio.buscarSocio(idSocio);
+
+    if(pos != -1)
+    {
+        socio = _archivoSocio.leerRegistroSocio(pos);
+        if(socio.getIdEntrenadorAsignado() == 0)
+        {
+            cout << endl;
+            cout << " Ingrese ID del entrenador: ";
+            cin >> idEntrenador;
+
+            if(entrenador.buscarUnEmpleado(idEntrenador))
+            {
+                socio.setIdEntrenadorAsignado(idEntrenador);
+
+                if(_archivoSocio.guardarSocio(socio, pos))
+                {
+                    cout << endl;
+                    cout << " Entrenador Asignado correctamente" << endl;
+                }
+                else
+                {
+                    cout << "Error de asignacion..." << endl;
+                }
+            }
+        }
+        else
+        {
+            cout << "Socio con entrenador ya asignado" << endl;
+        }
+    }
+
+    system("pause");
+}
+
+void ServicioSocio::asignarRutinaASocio(int idSocio)
+{
+
+    Socio socio;
+
+    int pos = _archivoSocio.buscarSocio(idSocio);
+    socio = _archivoSocio.leerRegistroSocio(pos);
+
+
+
 }
 
 

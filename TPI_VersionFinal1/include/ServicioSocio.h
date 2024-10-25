@@ -24,6 +24,8 @@ public:
     void realizarUnPago(int idSocio);
 
     bool validarLoginAsistenciaSocio(int idSocio, int pin);
+    void asignarEntrenadorASocio();
+    void asignarRutinaASocio(int idSocio);
 
 private:
 

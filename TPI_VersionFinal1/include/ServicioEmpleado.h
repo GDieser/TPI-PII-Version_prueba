@@ -25,6 +25,8 @@ class ServicioEmpleado
         int obternerUltimoId();
         int obternerUltimoLegajo();
 
+        bool buscarUnEmpleado(int idEmpleado);
+
     private:
 
         GestionArchivoEmpleados _archivoEmpleado;

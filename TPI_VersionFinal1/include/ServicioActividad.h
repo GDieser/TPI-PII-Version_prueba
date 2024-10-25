@@ -11,6 +11,8 @@ public:
     int agregarActividad();
     void modificarActividad();
 
+    void buscarActividad(int idActividad);
+
 
 private:
 
