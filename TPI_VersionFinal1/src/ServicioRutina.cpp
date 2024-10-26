@@ -173,12 +173,23 @@ DetalleRutina ServicioRutina::crearDetalleRutina(int idRutina)
     return DetalleRutina(idEjercicio, idRutina, repeticiones, peso);
 }
 
-void ServicioRutina::modificarRutina(int idEntrenador)
+void ServicioRutina::mostrarRutinasPorEntrenador(int idEntrenador)
 {
     system("cls");
+    Rutina rutina;
 
+    int cantidad = _archivoRutina.cantidadRegistrosRutinas();
 
-
+    for(int i=0; i<cantidad; i++)
+    {
+        rutina = _archivoRutina.leerRegistroRutina(i);
+        if(rutina.getIdEntrenador() == idEntrenador)
+        {
+            cout << "------------------------------" << endl;
+            cout << " ID #" << rutina.getIdRutina() << endl;
+            cout << " Descripcion: " << rutina.getDescripcion() << endl;
+        }
+    }
     system("pause");
 }
 void ServicioRutina::asignarRutina()
@@ -201,5 +212,33 @@ int ServicioRutina::obtenerUltimoIdRutina() ///Que arranque en 1 y sea autonumer
     {
         return 1;
     }
+}
 
+void ServicioRutina::verRutinaAsignada(int idRutina)
+{
+    system("cls");
+    Rutina rutina;
+    //DetalleRutina detalle;
+
+    int pos = _archivoRutina.buscarRutina(idRutina);
+    rutina = _archivoRutina.leerRegistroRutina(pos);
+    //detalle = _archivoDetallesRutina.leerRegistroDetalleRutina(pos);
+
+    if(pos != -1)
+    {
+        rutina = _archivoRutina.leerRegistroRutina(pos);
+        //detalle = _archivoDetallesRutina.leerRegistroDetalleRutina(pos);
+
+        cout << "------------------------------------" << endl;
+        cout << " Nombre: " << rutina.getNombreRutina() << endl;
+        cout << " Descripcion: " << rutina.getDescripcion() << endl;
+        cout << " Frecuencia : " << rutina.getFrecuenciaSemanal() << " veces por semana." << endl;
+    }
+    else
+    {
+        cout << " Id no encontrado" << endl;
+    }
+
+
+    system("pause");
 }

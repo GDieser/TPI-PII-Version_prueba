@@ -5,6 +5,7 @@
 #include "ServicioReclamo.h"
 #include "ServicioEjercicio.h"
 #include "ServicioRutina.h"
+#include "ServicioSocio.h"
 
 using namespace std;
 
@@ -109,7 +110,9 @@ void MenuEntrenador::crearModificarRutina()
 {
     ServicioEjercicio ejercicio;
     ServicioRutina rutina;
-    int opcion;
+    ServicioSocio socio;
+
+    int opcion, idSocio;
 
     do
     {
@@ -119,7 +122,7 @@ void MenuEntrenador::crearModificarRutina()
         cout << " 1 - VER MIS RUTINAS" << endl;
         cout << " 2 - VER DETALLES RUTINAS" << endl;
         cout << " 3 - CREAR UNA RUTINA " << endl;
-        cout << " 4 - BUSCAR UNA RUTINA " << endl;///Capaz volar
+        cout << " 4 - ASIGNAR UNA RUTINA A SOCIO " << endl;
         cout << " 5 - MODIFICAR UNA RUTINA " << endl;
         cout << " 6 - VER EJERCICIOS " << endl;
         cout << " 7 - AGREGAR UN EJERCICIO " << endl;
@@ -144,6 +147,10 @@ void MenuEntrenador::crearModificarRutina()
             rutina.crearRutina(_idEntrenador);
             break;
         case 4:
+            cout << " Ingrese ID Socio al que desea asignar: ";
+            cin >> idSocio;
+
+            socio.asignarRutinaASocio(idSocio, _idEntrenador);
 
             break;
         case 5:

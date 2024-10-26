@@ -10,6 +10,7 @@ class ServicioRutina
         ServicioRutina();
 
         void verRutinas(int idEntrenador);
+        void verRutinaAsignada(int idSocio);
         void crearRutina(int idEntrenador);
         void modificarRutina(int idEntrenador);
         void asignarRutina();
@@ -17,6 +18,8 @@ class ServicioRutina
         int obtenerUltimoIdRutina();
         DetalleRutina crearDetalleRutina(int idRutina);
         void verDetallesDeRutina();
+
+        void mostrarRutinasPorEntrenador(int idEntrenador);
 
     private:
 

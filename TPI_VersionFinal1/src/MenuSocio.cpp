@@ -4,6 +4,7 @@
 #include "ServicioSocio.h"
 #include "ServicioPago.h"
 #include "ServicioReclamo.h"
+#include "ServicioRutina.h"
 
 using namespace std;
 
@@ -140,6 +141,10 @@ void MenuSocio::verRutina()
 {
     int opcion;
     ServicioSocio socio;
+    ServicioRutina rutina;
+
+    int idEntrenador = socio.devolverIdEntrenador(_idSocio);
+    int idRutina = socio.devolverIdRutina(_idSocio);
 
     do
     {
@@ -159,10 +164,10 @@ void MenuSocio::verRutina()
         switch(opcion)
         {
         case 1:
-
+            rutina.mostrarRutinasPorEntrenador(idEntrenador);
             break;
         case 2:
-
+            rutina.verRutinaAsignada(idRutina);
             break;
         default:
             cout << "ERROR" << endl;

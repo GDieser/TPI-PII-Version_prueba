@@ -25,7 +25,10 @@ public:
 
     bool validarLoginAsistenciaSocio(int idSocio, int pin);
     void asignarEntrenadorASocio();
-    void asignarRutinaASocio(int idSocio);
+    void asignarRutinaASocio(int idSocio, int idEntrenador);
+
+    int devolverIdEntrenador(int idSocio);
+    int devolverIdRutina(int idSocio);
 
 private:
 

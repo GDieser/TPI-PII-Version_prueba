@@ -7,6 +7,7 @@
 
 #include "ServicioEmpleado.h"
 #include "ServicioPago.h"
+#include "ServicioRutina.h"
 
 using namespace std;
 
@@ -433,16 +434,86 @@ void ServicioSocio::asignarEntrenadorASocio()
     system("pause");
 }
 
-void ServicioSocio::asignarRutinaASocio(int idSocio)
+void ServicioSocio::asignarRutinaASocio(int idSocio, int idEntrenador)
 {
 
     Socio socio;
+    ServicioRutina rutina;
+
+    int idRutina;
 
     int pos = _archivoSocio.buscarSocio(idSocio);
-    socio = _archivoSocio.leerRegistroSocio(pos);
 
 
+    if(pos != -1)
+    {
+        socio = _archivoSocio.leerRegistroSocio(pos);
 
+        if(socio.getIdUsuario() == idSocio)
+        {
+            cout << " Seleccione rutina a asignar: " << endl;
+
+            rutina.mostrarRutinasPorEntrenador(idEntrenador);
+
+            cout << endl;
+            cout << " Su selccion: ";
+            cin >> idRutina;
+
+            system("cls");
+            socio.setIdRutina(idRutina);
+            if(_archivoSocio.guardarSocio(socio, pos))
+            {
+                cout << " Rutina asignada con exito, ID #" << idRutina << endl;
+            }
+        }
+        else
+        {
+            cout << " ID Socio no encontrado" << endl;
+        }
+
+    }
+    else
+    {
+        cout << "Socio no encontrado"<< endl;
+    }
+    system("pause");
+
+}
+
+int ServicioSocio::devolverIdEntrenador(int idSocio)
+{
+    Socio socio;
+
+    int pos = _archivoSocio.buscarSocio(idSocio);
+
+    if(pos != -1)
+    {
+        socio = _archivoSocio.leerRegistroSocio(pos);
+
+        return socio.getIdEntrenadorAsignado();
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+int ServicioSocio::devolverIdRutina(int idSocio)
+{
+    Socio socio;
+
+    int pos = _archivoSocio.buscarSocio(idSocio);
+
+    if(pos != -1)
+    {
+        socio = _archivoSocio.leerRegistroSocio(pos);
+
+        return socio.getIdRutina();
+    }
+    else
+    {
+        return -1;
+    }
 }
 
 
